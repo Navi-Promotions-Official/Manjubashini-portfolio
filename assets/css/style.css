@@ -406,16 +406,15 @@ position:relative;
         width: 100%; /* Makes it take full width */
     }
 }
-
-
-
 .single-basic-info {
-	display: inline-block;
-	font-size: 14px;
-	padding: 10px 0;
-	width: 175px;
+    display: inline-block;
+    font-size: 14px;
+    padding: 10px 0;
+    width: 175px;
+    text-align: center; /* Center align on small screens */
 }
 
+/* Ensures proper spacing and alignment */
 .single-basic-info a {
     text-decoration: none;
     color: #fff;
@@ -423,9 +422,10 @@ position:relative;
     transition: 0.3s;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center; /* Center alignment for all screen sizes */
 }
 
+/* Icon Styling */
 .single-basic-info i {
     font-size: 30px;
     margin-bottom: 8px;
@@ -441,6 +441,76 @@ position:relative;
     -webkit-text-fill-color: transparent;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .basic-info-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: visible;
+    }
+    
+    .single-basic-info {
+        width: auto; /* Allow flexibility */
+        min-width: 120px; /* Ensure icons don’t get hidden */
+        padding: 8px 10px; /* Add spacing */
+        display: inline-block;
+    }
+
+    .single-basic-info a {
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align icons */
+        justify-content: center;
+    }
+
+    .single-basic-info i {
+        font-size: 28px;
+        display: block; /* Ensure icons don’t get hidden */
+    }
+
+    /* Ensure parent container allows wrapping */
+    .basic-info-container {
+        display: flex;
+        flex-wrap: wrap; /* Wrap items to avoid overflow */
+        justify-content: center; /* Center align icons */
+        gap: 10px; /* Add spacing between icons */
+    }
+}
+
+@media (max-width: 768px) {
+    .single-basic-info {
+        width: 140px; /* Further reduce width */
+        padding: 8px 0;
+    }
+
+    .single-basic-info a {
+        font-size: 15px;
+    }
+
+    .single-basic-info i {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .single-basic-info {
+        width: 100%; /* Full width on small screens */
+        padding: 6px 0;
+        display: block; /* Stack items vertically */
+    }
+
+    .single-basic-info a {
+        font-size: 14px;
+    }
+
+    .single-basic-info i {
+        font-size: 24px;
+    }
+}
+
+
 
 /*
 * ----------------------------------------------------------------------------------------
@@ -453,26 +523,38 @@ position:relative;
 * 04. START ABOUT CSS STYLE
 * ----------------------------------------------------------------------------------------
 */
+/* About Section */
+.about_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* Center Image */
 .about_img {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    flex: 1;
+    margin-bottom: 20px;
 }
 
 .about_img img {
-    width: 80%;
-    max-width: 100%;
-    margin-left: 100px;
-    height: 600px; /* Maintain aspect ratio */
-    border-radius: 8px;
-}
-.profile-img {
     width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover; /* Ensures image does not stretch */
+}
+
+/* Profile Image Styling */
+.profile-img {
     max-width: 320px;
     max-height: 380px;
-    height: 100%;
-    overflow: hidden; /* Ensures no overflow issues */
+    overflow: hidden;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
@@ -485,37 +567,57 @@ position:relative;
 .profile-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image fully covers the container */
+    object-fit: cover;
 }
- @media only screen and (max-width:768px){
-.about_img {margin-bottom:60px;}
- }
-.about_info{}
+
+/* About Info */
+.about_info {
+    flex: 1;
+    max-width: 600px;
+    text-align: justify;
+    margin: auto;
+    padding: 10px 20px;
+}
+
+/* Headings */
 .about_info h4, .skills_info h4 {
-	margin-bottom: 30px;
-	text-transform: uppercase;
-	font-size: 16px;
-	font-weight: 600;
-	border-bottom: 1px solid #eee;
-	display: inline-block;
-	padding-bottom: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    display: inline-block;
+    padding-bottom: 4px;
 }
+
 .about_info h3 {
-	margin-bottom:20px;
-	font-size: 30px;
+    font-size: 30px;
+    text-align: center;
 }
+
+/* Paragraph Styling */
+.about_info p {
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
 .about_info p strong {
-	color: #fff;
+    color: #fff;
 }
-.about_info p{margin-bottom: 30px;}
+
+/* Resume Button */
 .resume-btn {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
 }
 
 .resume-btn .btn {
     background: linear-gradient(135deg, #2B4CB3, #5D8FF5);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 16px;
     text-decoration: none;
     border-radius: 5px;
@@ -524,34 +626,84 @@ position:relative;
 
 .resume-btn .btn:hover {
     background: linear-gradient(135deg, #3C60D0, #6AA8FF);
-
 }
 
-/*START SKILL DESIGN */
+/* Progress Bar */
 .progress-bar-text {
-	font-size: 14px;
-	margin-bottom: 10px;
-	text-transform: capitalize;
-	font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    font-weight: 500;
 }
-.progress-bar-text span { float: right }
+
+.progress-bar-text span {
+    float: right;
+}
+
 .progress-bar {
-	background: #e8e8e9 none repeat scroll 0 0;
-	-webkit-box-shadow: 0 0 0;
-	box-shadow: 0 0 0;
-	height: 2px;
-	margin: 0 0 12px;
-	border-radius: 30px;
-	position: relative;
-	width: 100%;
+    background: #e8e8e9;
+    height: 5px;
+    border-radius: 30px;
+    width: 100%;
+    overflow: hidden;
 }
+
 .progress-bar > span {
-    background: #4C79DB none repeat scroll 0 0;
+    background: #4C79DB;
     display: block;
     height: 100%;
     width: 0;
-	border-radius: 30px;
+    border-radius: 30px;
+    transition: width 0.8s ease-in-out; /* Smooth transition */
 }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .about_section {
+        flex-direction: column;
+    }
+
+    .about_info {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about_img {
+        margin-bottom: 30px;
+    }
+
+    .about_info h3 {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+
+    .about_info p {
+        font-size: 14px;
+    }
+
+    .resume-btn .btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about_info h3 {
+        font-size: 20px;
+    }
+
+    .about_info p {
+        font-size: 13px;
+    }
+
+    .resume-btn .btn {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}
+
+
 /*END SKILL*/
 /*
 * ----------------------------------------------------------------------------------------
@@ -565,94 +717,146 @@ position:relative;
 * 05. START SERVICE CSS STYLE
 * ----------------------------------------------------------------------------------------
 */
- @media only screen and (max-width:768px){
-.service_area{padding-bottom:20px;}
+ /* General Service Area Styles */
+.service_area {
+    padding-bottom: 20px;
 }
+
+/* Grid Layout for Services */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns on Large Screens */
+    gap: 20px; /* Space Between Boxes */
+    justify-content: center;
+}
+
+@media (max-width: 990px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns for Tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 Column for Mobile */
+    }
+}
+
+/* Individual Service Box */
 .serviceBox {
-	position: relative;
-	padding: 40px;
+    position: relative;
+    padding: 40px;
+    background: #111; /* Adjust Background Color */
+    text-align: center;
+    border-radius: 10px;
+    min-height: 200px; /* Ensures All Boxes Have Equal Height */
+    transition: transform 0.3s ease-in-out;
 }
+
+.serviceBox:hover {
+    transform: scale(1.05); /* Adds a Hover Effect */
+}
+
+/* Service Box Borders */
 .sbbr {
-	border-right: 1px solid #353639;
-	border-bottom: 1px solid #353639;
+    border-right: 1px solid #353639;
+    border-bottom: 1px solid #353639;
 }
- @media only screen and (max-width:768px){
-.sbbr{border-right: 0px;border-left: 0px;border-bottom:0px;}
+
+/* Remove Borders on Mobile */
+@media (max-width: 768px) {
+    .sbbr {
+        border-right: 0;
+        border-left: 0;
+        border-bottom: 0;
+    }
 }
-.sbbrnone{
-border-right:0px;
+
+.sbbrnone {
+    border-right: 0;
 }
-.sblr{
-	/* border-right: 1px solid #353639; */
-	border-left: 1px solid #353639;
+
+.sblr {
+    border-left: 1px solid #353639;
 }
- @media only screen and (max-width:768px){
-.sblr{border-right: 0px;border-left: 0px;}
+
+/* Remove Left Border on Mobile */
+@media (max-width: 768px) {
+    .sblr {
+        border-right: 0;
+        border-left: 0;
+    }
 }
+
+/* Service Icon */
 .service-icon i {
     background: linear-gradient(135deg, #2B4CB3, #5D8FF5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-	display: inline-block;
-	font-size:50px;
-	margin-bottom: 25px;
-	-webkit-transition: all 0.5s ease 0s;
-	-o-transition: all 0.5s ease 0s;
-	transition: all 0.5s ease 0s;
-}
-.serviceBox:hover .service-icon{
-    -webkit-animation: 0.3s ease 0s normal forwards 1 running loading;
-            animation: 0.3s ease 0s normal forwards 1 running loading;
-     background: linear-gradient(135deg, #3C60D0, #6AA8FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-}
-.serviceBox .title {
-	font-size: 20px;
-	font-weight: 700;
-	margin: 0 0 15px;
-	text-transform: capitalize;
-}
-.serviceBox .service-no{
     display: inline-block;
+    font-size: 50px;
+    margin-bottom: 25px;
+    transition: all 0.5s ease;
+}
+
+/* Hover Effect */
+.serviceBox:hover .service-icon {
+    background: linear-gradient(135deg, #3C60D0, #6AA8FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Service Title */
+.serviceBox .title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+/* Service Number */
+.serviceBox .service-no {
     float: right;
     font-size: 32px;
     color: #ddd;
     line-height: 20px;
 }
-.serviceBox .description{
+
+/* Service Description */
+.serviceBox .description {
     margin: 0;
 }
 
-@-webkit-keyframes loading{
-    49%{ -webkit-transform: translateY(-100%); transform: translateY(-100%); }
-    50%{
-        opacity: 0;
-        -webkit-transform: translateY(100%);
-                transform: translateY(100%);
+/* Hover Animation */
+@keyframes loading {
+    49% {
+        transform: translateY(-100%);
     }
-    51%{ opacity: 1; }
-}
-@keyframes loading{
-    49%{ -webkit-transform: translateY(-100%); transform: translateY(-100%); }
-    50%{
+    50% {
         opacity: 0;
-        -webkit-transform: translateY(100%);
-                transform: translateY(100%);
+        transform: translateY(100%);
     }
-    51%{ opacity: 1; }
-}
-@media only screen and (max-width:990px){
-    .serviceBox{ margin-bottom: 40px; }
+    51% {
+        opacity: 1;
+    }
 }
 
-@media (min-width: 992px) { /* Applies only on larger screens */
+/* Adds Margin for Smaller Screens */
+@media (max-width: 990px) {
+    .serviceBox {
+        margin-bottom: 40px;
+    }
+}
+
+/* Centering Last Row */
+@media (min-width: 992px) {
     .last-row {
         display: flex;
         justify-content: center;
-        gap: 20px; /* Adjust spacing */
+        gap: 20px;
     }
-}*/
+}
+
 
 /*
 * ----------------------------------------------------------------------------------------
@@ -662,7 +866,6 @@ border-right:0px;
 
 /* Technology Stack Section */
 #tech-stack {
-    background-color: #0d0d0d; /* Dark background */
     padding: 60px 0;
     text-align: center;
 }
@@ -687,7 +890,7 @@ border-right:0px;
 }
 
 .techstack-filter-menu li {
-    background:linear-gradient(135deg, #2B4CB3, #5D8FF5);
+    background: linear-gradient(135deg, #2B4CB3, #5D8FF5);
     color: #ffffff;
     padding: 10px 20px;
     cursor: pointer;
@@ -704,16 +907,17 @@ border-right:0px;
 /* Tech Stack Grid */
 .techstack-content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 20px;
 }
 
-/* Tech Stack Items */
-.techstack-content .tech-item {
+/* Tech Stack Item */
+.techstack-item {
     background: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 10px;
@@ -721,17 +925,18 @@ border-right:0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.techstack-content .tech-item:hover {
+.techstack-item:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Icons */
-.techstack-content .tech-item img {
+.techstack-item img {
     max-width: 100px;
     height: auto;
     display: block;
@@ -739,31 +944,57 @@ border-right:0px;
     transition: transform 0.3s ease;
 }
 
-.techstack-content .tech-item img:hover {
+.techstack-item img:hover {
     transform: scale(1.1);
 }
 
 /* Tech Item Text */
-.techstack-content .tech-item p {
+.techstack-item p {
     color: #ffffff;
     font-size: 18px;
     margin: 5px 0 0;
 }
 
 /* Responsive Design */
+
+/* Large Tablets & Small Laptops (Up to 1024px) */
+@media (max-width: 1024px) {
+    .techstack-content {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        padding: 20px;
+    }
+}
+
+/* Tablets (Up to 768px) */
 @media (max-width: 768px) {
     .techstack-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        justify-items: center;
+        padding: 0 20px;
     }
 }
 
-@media (max-width: 480px) {
+/* Large Phones (Up to 600px) */
+@media (max-width: 600px) {
     .techstack-content {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 15px;
     }
 }
 
+/* Small Phones (Up to 400px) */
+@media (max-width: 400px) {
+    .techstack-content {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(45%, 1fr)); /* Two flexible columns */
+        gap: 10px;
+        padding: 0 10px;
+        justify-content: center; /* Ensures proper spacing */
+    }
+}
 
 /*
 * ----------------------------------------------------------------------------------------
@@ -1121,6 +1352,20 @@ width: 600px;
 }
 .resume-card1 {
     background: #222; /* Dark background */
+    padding: 50px; /* Slightly increased padding */
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 480px; /* Ensures uniform height */
+    height: 100%;
+    color: #fff; /* White text for contrast */
+}
+
+.resume-card2 {
+    background: #222; /* Dark background */
     border-radius: 12px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
     transition: 0.3s;
@@ -1135,7 +1380,6 @@ width: 600px;
     padding: 40px; /* 👈 Adjusted padding */
 }
 
-
 /* Hover Effect */
 .resume-card:hover {
     transform: translateY(-5px); /* Subtle lift effect */
@@ -1149,6 +1393,10 @@ width: 600px;
     box-shadow: 0px 6px 25px #3C60D0;
 }
 
+.resume-card2:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+    box-shadow: 0px 6px 25px #3C60D0;
+}
 /* Timeline Title */
 .timeline_title {
     text-transform: capitalize;
@@ -1256,7 +1504,16 @@ width: 600px;
     .resume-card {
         min-height: auto;
         padding: 25px;
+        margin-bottom: 30px;
     }
+    .resume-card1 {
+        margin-bottom: 30px; /* Space below Experience */
+    }
+    
+    .resume-card2 {
+        margin-top: 30px; /* Space above Achievements */
+    }
+    
 
     .timeline_title {
         font-size: 24px;
@@ -1279,7 +1536,7 @@ width: 600px;
     .timeline_title {
         font-size: 22px;
     }
-
+  
     .single_timeline h4 {
         font-size: 18px;
     }
@@ -1302,7 +1559,9 @@ width: 600px;
     .timeline_title {
         font-size: 20px;
     }
-
+    .resume-card {
+        margin-bottom: 20px; /* Adds space between stacked cards */
+    }
     .single_timeline h4 {
         font-size: 16px;
     }
@@ -1734,3 +1993,4 @@ font-weight: 600;
 * 13.END SECTION TOP DESIGN
 * ----------------------------------------------------------------------------------------
 */
+
