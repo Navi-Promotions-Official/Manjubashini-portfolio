@@ -166,22 +166,20 @@ document.addEventListener("DOMContentLoaded", function () {
     setupFilter("tech-stack", "techstack-filter", "mix"); // Tech Stack Section
 });
 
-function openModal(imageSrc, title, description, githubURL, liveDemoURL, event) {
-    if (event) {
-        event.preventDefault(); // Prevents the page from moving up
-    }
+function openModal(event, imageSrc, title, description, githubURL, liveDemoURL) {
+    event.preventDefault(); // Prevents page from moving up
     
+    let modal = document.getElementById("imageModal");
+    
+    // Set content
     document.getElementById("modalImage").src = imageSrc;
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalDescription").innerText = description;
-    
-    // Update GitHub and Live Demo Links
     document.getElementById("githubLink").href = githubURL;
     document.getElementById("liveDemoLink").href = liveDemoURL;
-    
+
     // Display modal
-    let modal = document.getElementById("imageModal");
-    modal.style.display = "flex";
+    modal.style.display = "block";
 }
 
 function closeModal() {
