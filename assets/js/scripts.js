@@ -179,8 +179,9 @@ function openModal(imageSrc, title, description, githubURL, liveDemoURL, event) 
     document.getElementById("githubLink").href = githubURL;
     document.getElementById("liveDemoLink").href = liveDemoURL;
     
-    // Display modal without affecting page scroll
-    document.getElementById("imageModal").style.display = "flex";
+    // Display modal
+    let modal = document.getElementById("imageModal");
+    modal.style.display = "flex";
 }
 
 function closeModal() {
@@ -189,4 +190,8 @@ function closeModal() {
 
 
 
-
+$(document).ready(function () {
+    $(".nav-item .nav-link").click(function () {
+        $(".navbar-collapse").collapse("hide");
+    });
+});

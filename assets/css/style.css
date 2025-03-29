@@ -1204,16 +1204,18 @@ position:relative;
     align-items: center;
 }
 
+
 /* Modal Content */
 .modal-content {
     background-color: rgba(0, 0, 0, 0.3); /* Dark Transparent Black */
-    padding: 20px;
+    right: auto;
+    padding: 20px;;
     border-radius: 8px;
     max-width: 60%;
-    width: 50%;
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     position: relative;
     color: white; /* White text for better visibility */
@@ -1265,55 +1267,7 @@ position:relative;
     background: linear-gradient(135deg, #3C60D0, #6AA8FF); /* Slightly more visible on hover */
     color: #fff;}
 
-
-
- /*START PORTFOLIO SINGLE PAGE DESIGN*/
-
-
-.single_project_area{padding-bottom:50px;}
-.project_dec {
-	background: #1b1e22 none repeat scroll 0 0;
-	box-shadow: 0 10px 40px -10px rgba(0,64,128,.08);
-	margin-bottom: 30px;
-	padding: 40px;
-	border-radius: 10px;
-}
-.project_dec img {
-margin-right: 20px;
-width: 600px;
-}
-.about_project h4 {
-	border-bottom: 1px solid #353638;
-	padding: 10px 0;
-	font-weight: 600;
-}
-.about_project p {
-	margin-bottom: 30px;
-}
-.about_project_details { margin-bottom: 20px }
-.about_project_details ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.about_project_details ul li { padding: 5px 0 }
-.about_project_details ul li i {
-    color: #4C79DB;
-    margin-right: 10px;
-}
-.about_project_details ul li a {
-    color: #4C79DB;
-    font-weight: 700;
-}
-.about_project_details ul li a:hover {text-decoration: underline;}
-.sp_btn {
-	border-bottom: 1px solid #fff;
-	color: #6AA8FF;
-	padding-bottom: 4px;
-	transition: 0.3s;
-}
-.sp_btn:hover{color: #6AA8FF;}
-/*END PORTFOLIO SINGLE PAGE DESIGN*/
+ 
 /*
 * ----------------------------------------------------------------------------------------
 * 07. END PORTFILIO PAGE DESIGN
